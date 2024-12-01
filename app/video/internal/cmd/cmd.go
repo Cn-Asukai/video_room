@@ -1,13 +1,12 @@
 package cmd
 
 import (
+	"VideoRoom/app/video/internal/controller/video"
 	"context"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
-
-	"video_room/app/video/internal/controller/hello"
 )
 
 var (
@@ -17,10 +16,10 @@ var (
 		Brief: "start http server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
-			s.Group("/", func(group *ghttp.RouterGroup) {
+			s.Group("/video", func(group *ghttp.RouterGroup) {
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
-					hello.NewV1(),
+					video.NewV1(),
 				)
 			})
 			s.Run()

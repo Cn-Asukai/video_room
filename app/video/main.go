@@ -1,11 +1,14 @@
 package main
 
 import (
-	_ "video_room/app/video/internal/packed"
+	_ "VideoRoom/app/video/internal/packed"
+	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
+
+	_ "VideoRoom/app/video/internal/logic"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"video_room/app/video/internal/cmd"
+	"VideoRoom/app/video/internal/cmd"
 )
 
 func main() {
