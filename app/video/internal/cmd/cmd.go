@@ -22,6 +22,10 @@ var (
 					video.NewV1(),
 				)
 			})
+
+			s.SetIndexFolder(true)
+			//s.SetServerRoot("C:\\Users\\暮居池\\Desktop\\code\\go\\VideoRoom\\app\\video\\resource\\public\\resource")
+			s.SetServerRoot("./resource/public/resource")
 			s.Run()
 			return nil
 		},
