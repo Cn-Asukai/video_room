@@ -3,7 +3,7 @@ package v1
 import "github.com/gogf/gf/v2/frame/g"
 
 type DeleteReq struct {
-	g.Meta `path:"/" method:"Delete"`
+	g.Meta `path:"/" method:"Delete" tags:"Video"`
 	Id     int `json:"id"`
 }
 

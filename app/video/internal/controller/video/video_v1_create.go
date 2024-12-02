@@ -1,27 +1,25 @@
 package video
 
 import (
-	"VideoRoom/app/video/internal/model/entity"
+	"VideoRoom/app/video/api/video/v1"
+	"VideoRoom/app/video/internal/model/do"
 	"VideoRoom/app/video/internal/service"
 	"context"
-
-	"VideoRoom/app/video/api/video/v1"
+	"github.com/gogf/gf/v2/errors/gcode"
+	"github.com/gogf/gf/v2/errors/gerror"
+	"github.com/gogf/gf/v2/os/glog"
 )
 
 func (c *ControllerV1) Create(ctx context.Context, req *v1.CreateReq) (res *v1.CreateRes, err error) {
-	err = service.Video().Create(ctx, &entity.Videos{
-		Id:        0,
-		CreatedAt: nil,
-		UpdatedAt: nil,
-		DeletedAt: nil,
-		Name:      req.Name,
-		Url:       req.Url,
-		CoverUrl:  req.CoverUrl,
-		State:     0,
+	err = service.Video().Create(ctx, &do.Videos{
+		Name:     req.Name,
+		Url:      req.Url,
+		CoverUrl: req.CoverUrl,
 	})
 	if err != nil {
-		return nil, err
+		glog.Error(ctx, err)
+		return nil, gerror.NewCode(gcode.CodeInternalError)
 	}
 
-	return nil, nil
+	return &v1.CreateRes{}, nil
 }

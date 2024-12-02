@@ -6,13 +6,17 @@
 package service
 
 import (
+	"VideoRoom/app/video/internal/model/do"
 	"VideoRoom/app/video/internal/model/entity"
 	"context"
 )
 
 type (
 	IVideo interface {
-		Create(ctx context.Context, in *entity.Videos) (err error)
+		Create(ctx context.Context, in *do.Videos) (err error)
+		Delete(ctx context.Context, in *do.Videos) (err error)
+		GetOne(ctx context.Context, in *do.Videos) (out *entity.Videos, err error)
+		GetList(ctx context.Context, page int, limit int, in *do.Videos) (videos []entity.Videos, count int, err error)
 	}
 )
 

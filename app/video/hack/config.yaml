@@ -4,7 +4,7 @@
 gfcli:
   gen:
     dao:
-      - link: "mysql:root:123456@tcp(127.0.0.1:3307)/video"
+      - link: "mysql:root:123456@tcp(127.0.0.1:3306)/video"
         descriptionTag: true
 
   docker:

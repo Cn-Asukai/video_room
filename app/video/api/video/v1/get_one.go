@@ -12,5 +12,5 @@ type GetOneReq struct {
 
 type GetOneRes struct {
 	g.Meta `mine:"application/json"`
-	Video  entity.Videos `json:"video"`
+	*entity.Videos
 }
